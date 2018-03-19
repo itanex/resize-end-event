@@ -8,7 +8,7 @@ This library adds a simple resize-end event to any solution so that you can bind
         console.log('Resize end Event -- ' + new Date().toISOString())
     })
 
-## Problems?
+## Problems
 
 Report any issues or suggestions through the github issue tracker.
 

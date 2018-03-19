@@ -1,12 +1,16 @@
 // Typescript IIFE - shim should not leave any global footprint
-() => {
-    const TIMEOUT = 200;
-    const EVENT_KEY = new Event('resizeend');
+(() => {
+    const timeout: number = 200;
+    const event = new Event('resizeend');
     let timer: number = -1;
-
-    window.addEventListener('resize',  () => {
+    
+    let resizeHandler = () => {
         clearTimeout(timer);
-debugger;
-        timer = setTimeout(() => window.dispatchEvent(EVENT_KEY), TIMEOUT);
-    });
-}
+        
+        timer = setTimeout(() => window.dispatchEvent(event), timeout);
+    }
+
+    window.onresize = resizeHandler;
+
+    console.info(`resizeend event attached ${!!window.onresize}`)
+})()
